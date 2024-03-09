@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { useEffect } from 'react';
+import DefaultNote from './components/notes/DefaultNote';
+import GroupNote from './components/notes/GroupNote';
+import CreateGroup from './components/popup-modal/CreateGroup';
+import Sidebar from './components/siderbar/Sidebar';
+import NoteContext from './context/NoteContext';
+import { useState } from 'react';
 function App() {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+ 
+  }, []); 
+  const [notesData, setNotesData] = useState(
+    localStorage.getItem("notesData") || []
+  )
+
+  const [selected, setSelected] = useState(
+    localStorage.getItem('selected') || []
+  )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NoteContext.Provider value={{ notesData, setNotesData, selected, setSelected }}>
+      <div style={{width:"100vw",height:"100vh",margin:"0",padding:"0",display:"flex"}}>
+       <Sidebar></Sidebar>
+       {/* <DefaultNote></DefaultNote> */}
+       {/* <CreateGroup></CreateGroup> */}
+       {/* <GroupNote></GroupNote> */}
+      </div>
+    </NoteContext.Provider>
   );
 }
 
