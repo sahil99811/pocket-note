@@ -40,7 +40,7 @@
     width: inherit;
     display: flex;
     flex-direction: column;
-    height: 82vh;
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -48,9 +48,21 @@
     .sidebar-container{
         width:40vw
     }
-  }
+}
 @media (max-width:500px){
     .sidebar-container{
-        width:100vw
+        width:100vw;
+        height: 100vh;
+    }
+    .sidebar-container>h2{
+        margin-top:2vh;
+        margin-bottom:0.5vh;
+        text-align: left;
+        margin-left: 10vw;
+        font-size: 10vw;
+    }
+    .group-container{
+        margin-left: 10vw;
+        height: calc(100vh - 10vw - 2vh - 0.5vh);
     }
 }
