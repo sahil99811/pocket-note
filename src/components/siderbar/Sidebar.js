@@ -8,8 +8,8 @@ export default function Sidebar({ openModal }) {
  
   return (
       <div className='sidebar-container'>
-      <h2>Pocket Notes</h2>
-      <div className='group-container'>
+       <h2>Pocket Notes</h2>
+       <div className='group-container'>
         {groups.map((item, index) => (
           <GroupCard key={index} data={item} />
         ))}
