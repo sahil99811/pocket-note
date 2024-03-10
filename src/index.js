@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import rootReducer from './reducer';
 import { configureStore } from '@reduxjs/toolkit';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 const store = configureStore({
   reducer:rootReducer,
 });
@@ -16,6 +17,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <ToastContainer></ToastContainer>
     </Provider>
   </React.StrictMode>
 );

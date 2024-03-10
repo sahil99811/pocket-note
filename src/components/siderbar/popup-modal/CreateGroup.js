@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import '../../../styles/CreateGroup.css'
 import { useSelector,useDispatch } from 'react-redux'
 import { setGroups } from '../../../slices/groupSlice';
+import { toast } from 'react-toastify';
 const colors = ["#B38BFA", "#FF79F2", "#43E6FC", "#F19576", "#0047FF", "#6691FF"];
-export default function CreateGroup() {
+export default function CreateGroup({closeModal}) {
   const dispatch = useDispatch();
   const {groups}=useSelector((state)=>state.group);
   const [groupData,setGroupData]=useState({
@@ -33,12 +34,22 @@ export default function CreateGroup() {
   }
   function createGroup(event){
     event.preventDefault();
-    console.log(groupData)
-    setGroupData({groupColor:"",groupName:""});
-    if(isGroupExists(groupData.groupName)===true){
-     alert("group is already present");
+    if(groupData.groupName===""){
+      toast.error("GroupName is required");
+      return
+    }
+    else if(groupData.groupColor===""){
+     toast.error("Choose a group color")
      return;
     }
+   
+    if(isGroupExists(groupData.groupName)===true){
+     toast.error("Group already present choose different GroupName")
+     return;
+    }
+    
+    setGroupData({groupColor:"",groupName:""});
+    
     const logo=splitGroupName(groupData.groupName);
     const newGroup={
       groupName:groupData.groupName,
@@ -46,9 +57,11 @@ export default function CreateGroup() {
       groupLogo:logo
     }
     const newGroups = [...groups, newGroup];
-    console.log(newGroups)
+
     dispatch(setGroups(newGroups));
     localStorage.setItem("groupData",JSON.stringify(newGroups));
+    toast.success("Group Created Sucessfully")
+    closeModal()
   }
   return (
     <div className='creategroup-container'>

@@ -44,3 +44,13 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+@media (max-width:850px) {
+    .sidebar-container{
+        width:40vw
+    }
+  }
+@media (max-width:500px){
+    .sidebar-container{
+        width:100vw
+    }
+}

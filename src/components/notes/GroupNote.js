@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/GroupNote.css';
 import disabledSend from '../../assets/disabledSend.png';
 import enabledSend from '../../assets/enabledSend.png';
@@ -12,7 +12,6 @@ export default function GroupNote() {
   const { selectedGroup } = useSelector((state) => state.group);
   const { notesData } = useSelector((state) => state.note);
   const [textAreaData, setTextAreaData] = useState("");
-
   const handleChange = (event) => {
     setTextAreaData(event.target.value);
   };
@@ -46,11 +45,13 @@ export default function GroupNote() {
     localStorage.setItem("noteData", JSON.stringify(newNoteData));
     setTextAreaData("");
   };
-
+  useEffect(()=>{
+   setTextAreaData("");
+  },[selectedGroup.groupName])
   return (
     <div className='groupName-container'>
       <header className='header'>
-        <div className='groupLogo' style={{ background: selectedGroup.groupColor }}>{selectedGroup.groupLogo}</div>
+        <div className='groupLogo' style={{ background: selectedGroup.groupColor,cursor:"pointer" }}>{selectedGroup.groupLogo}</div>
         <p>{selectedGroup.groupName}</p>
       </header>
       <section className='groupNotes'>

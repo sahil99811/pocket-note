@@ -3,19 +3,19 @@ import { useEffect ,useState} from 'react';
 import SideBar from '../components/siderbar/Sidebar'
 import DefaultNote from '../components/notes/DefaultNote';
 import GroupNote from '../components/notes/GroupNote';
-import NoteContext from '../context/NoteContext';
+
 import CreateGroup from '../components/siderbar/popup-modal/CreateGroup';
 import { useSelector } from 'react-redux';
 export default function HomePage() {
 const [windowSize, setWindowSize] = useState(window.innerWidth);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowSize(window.innerWidth);
-  //   };
-  //   window.addEventListener('resize', handleResize);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
  
-  // }, []); 
+  }, []); 
   
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -29,9 +29,11 @@ const [windowSize, setWindowSize] = useState(window.innerWidth);
   return (
      <div style={{width:"100vw",height:"100vh",margin:"0",padding:"0",display:"flex"}}>
         <SideBar openModal={openModal}></SideBar>
-        {selectedGroup==null?<DefaultNote></DefaultNote>:<GroupNote></GroupNote>}
+        {windowSize > 500 && (
+          selectedGroup == null ? <DefaultNote /> : <GroupNote />
+        )}
         {
-        isModalOpen&&<CreateGroup></CreateGroup>
+        isModalOpen&&<CreateGroup closeModal={closeModal}></CreateGroup>
         }
      </div>    
   )

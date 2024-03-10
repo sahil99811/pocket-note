@@ -5,8 +5,7 @@ import {setSelectedGroup} from '../../../slices/groupSlice'
 export default function Group({data}) {
   const dispatch=useDispatch();
   function onClickHandler(){
-    console.log(data);
-    dispatch(setSelectedGroup(data))
+    dispatch(setSelectedGroup(data));
   }
   return (
    <div className='group' onClick={onClickHandler}>

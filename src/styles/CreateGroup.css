@@ -14,8 +14,16 @@
     left: 50%;
     transform: translate(-50%, -50%); 
     position: absolute;
+    animation: slideIn 1.5s ease-in-out;
 }
-
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1; 
+    }
+  }
 .groupColor-container{
     display: flex;
     gap: 20px;
