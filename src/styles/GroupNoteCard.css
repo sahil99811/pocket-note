@@ -14,6 +14,22 @@
 .notecard-container>p{
     margin: 10px 10px;
 }
-.notecard-container>.date-time{
-    text-align: right;
+.date-time{
+    display: flex;
+    gap: 0.6vw;
+    align-items: center;
+    justify-content:flex-end;
+    font-family: Roboto;
+    font-size: 1.2vw;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: 0.02em;
+    margin-right: 1vw;
+    color: #353535;
+}
+.date-time>p{
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background:#353535;
 }
