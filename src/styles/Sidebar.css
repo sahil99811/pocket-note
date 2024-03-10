@@ -52,7 +52,7 @@
  @media (max-width:500px){
     .sidebar-container{
         width:100vw;
-        /* height: 100vh; */
+        height: 100%;
     }
     .sidebar-container>h2{
         margin-top:20px;
