@@ -37,7 +37,7 @@ export default function HomePage() {
       }
       {isModalOpen && <CreateGroup closeModal={closeModal} />}
       {
-        isModalOpen&&<div className="overlay" ></div>
+        isModalOpen&&<div className="overlay" onClick={closeModal}></div>
       }  
     </div>
   );
