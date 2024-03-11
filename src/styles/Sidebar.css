@@ -1,7 +1,7 @@
 .sidebar-container{
     background: #FFFFFF;
     width: 30vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -38,7 +38,6 @@
     cursor: pointer;
 }
 .group-container{
-   
     width: inherit;
     display: flex;
     flex-direction: column;
@@ -53,8 +52,7 @@
 }
  @media (max-width:500px){
     .sidebar-container{
-        width:100vw;
-        height: calc(100vh - 60px);
+        width: 100vw;
     }
     .sidebar-container>h2{
         position: static;
@@ -66,5 +64,7 @@
         margin-left: 40px; 
         font-size:25px;
     }
-    
+    .group-container{
+        height: calc(100vh - 40px);
+    }
 }
