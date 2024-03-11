@@ -100,8 +100,8 @@ textarea{
         height: 25vh;
     } */
   }
-@media (max-width:500px){
+/* @media (max-width:500px){
     .groupName-container{
         display: none;
     }
-}
+} */

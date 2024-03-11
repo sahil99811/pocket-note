@@ -4,6 +4,8 @@ import DefaultNote from '../components/notes/DefaultNote';
 import GroupNote from '../components/notes/GroupNote';
 import CreateGroup from '../components/siderbar/popup-modal/CreateGroup';
 import { useSelector } from 'react-redux';
+import DesktopPage from './DesktopPage';
+import MobilePage from './MobilePage';
 
 export default function HomePage() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -32,9 +34,8 @@ export default function HomePage() {
 
   return (
     <div style={{ width: "100vw", height: "100vh", margin: "0", padding: "0", display: "flex", position: "relative" }}>
-      <SideBar openModal={openModal} />
       {
-        selectedGroup==null?<DefaultNote></DefaultNote>:<GroupNote></GroupNote>
+        windowSize>500?<DesktopPage openModal={openModal}></DesktopPage>:<MobilePage></MobilePage>
       }
       {isModalOpen && <CreateGroup closeModal={closeModal} />}
     </div>

@@ -70,8 +70,3 @@
         height: 24vh;
     }
 }
-@media (max-width:500px){
-    .default-container{
-        display: none;
-    }
-}
