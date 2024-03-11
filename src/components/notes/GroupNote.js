@@ -55,7 +55,11 @@ export default function GroupNote() {
   return (
     <div className='groupName-container'>
       <header className='header'>
-        {selectedGroup&&<img src={arrow} className='arrow' onClick={handleBack}/>}
+        {selectedGroup && (
+        <button className='arrow-button' onClick={handleBack}>
+         <img src={arrow} className='arrow' alt='Back' />
+        </button>
+        )}
         <div className='groupLogo' style={{ background: selectedGroup.groupColor,cursor:"pointer" }}>{selectedGroup.groupLogo}</div>
         <p>{selectedGroup.groupName}</p>
       </header>
