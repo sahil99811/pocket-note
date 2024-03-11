@@ -12,7 +12,8 @@
     align-items: center;
     gap: 12px;
     width: inherit;
-    height: 70px;
+    min-height: 70px;
+    max-height: 70px;
 }
 .arrow-button {
     background: none;
@@ -56,15 +57,13 @@
 }
 .groupNotes{
   width: inherit;
-  overflow-y: scroll;
-  height:calc(100vh-25px-26vh) ;
-  min-height: calc(100vh-25px-26vh);
-  max-height: calc(100vh-25px-26vh);
   background-color:#DAE5F5;
+  overflow-y: auto;
+  height: calc(100% - 210px);
 }
 .inputNote-container{
   width: inherit;
-  height: 26vh;
+  height: 140px;
   background-color:#001F8B ;
   display: flex;
   align-items: center;

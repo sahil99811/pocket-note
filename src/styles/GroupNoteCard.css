@@ -12,24 +12,35 @@
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
 }
 .notecard-container>p{
-    margin: 10px 10px;
+    margin: 10px 15px;
+    color:rgba(0, 0, 0, 1);
+    font-size: 18px;
 }
 .date-time{
     display: flex;
-    gap: 0.6vw;
+    gap: 10px;
     align-items: center;
     justify-content:flex-end;
     font-family: Roboto;
-    font-size: 1.2vw;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 2rem;
     letter-spacing: 0.02em;
-    margin-right: 1vw;
+    margin-right: 15px;
+    margin-bottom: 5px;
     color: #353535;
 }
 .date-time>p{
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    background:#353535;
+    background:rgba(53, 53, 53, 1);
+}
+
+@media (max-width:500px){
+    .notecard-container>p{
+        font-size: 15px;
+    }
+    .date-time{
+        font-size: 13px;
+    }
 }
