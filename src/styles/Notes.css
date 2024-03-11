@@ -21,7 +21,7 @@
 }
 .default-note>h2{
     font-weight: 700;
-    font-size:3.5vw;
+    font-size:3.2vw;
     color: black;
     font-family: "Roboto";
     margin: 0;
@@ -32,7 +32,7 @@
     margin: 0;
     padding: 0;
     font-weight: 500;
-    font-size:1.6vw;
+    font-size:1.4vw;
     color: black;
     font-family: "Roboto";
     letter-spacing: 0.03em;
@@ -61,6 +61,17 @@
     }
     .default-note>img{
         width: 30vw;
-        height: 30vh;
+        height: 25vh;
     }
   }
+@media (max-width:650px){
+    .default-note>img{
+        width: 28vw;
+        height: 24vh;
+    }
+}
+@media (max-width:500px){
+    .default-container{
+        display: none;
+    }
+}

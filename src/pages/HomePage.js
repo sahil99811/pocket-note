@@ -33,9 +33,9 @@ export default function HomePage() {
   return (
     <div style={{ width: "100vw", height: "100vh", margin: "0", padding: "0", display: "flex", position: "relative" }}>
       <SideBar openModal={openModal} />
-      {windowSize > 500 && (
-        selectedGroup == null ? <DefaultNote /> : <GroupNote />
-      )}
+      {
+        selectedGroup==null?<DefaultNote></DefaultNote>:<GroupNote></GroupNote>
+      }
       {isModalOpen && <CreateGroup closeModal={closeModal} />}
     </div>
   );
