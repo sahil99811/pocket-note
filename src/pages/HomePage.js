@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import SideBar from '../components/siderbar/Sidebar';
-import DefaultNote from '../components/notes/DefaultNote';
-import GroupNote from '../components/notes/GroupNote';
 import CreateGroup from '../components/siderbar/popup-modal/CreateGroup';
-import { useSelector } from 'react-redux';
+
 import DesktopPage from './DesktopPage';
 import MobilePage from './MobilePage';
 
 export default function HomePage() {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [windowSize, setWindowSize] = useState(window.outerWidth);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { selectedGroup } = useSelector(state => state.group);
-
   useEffect(() => {
+    let timeoutId;
+
     const handleResize = () => {
-      setWindowSize(window.innerWidth);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setWindowSize(window.outerWidth);
+      }, 0); 
     };
 
     window.addEventListener('resize', handleResize);
@@ -23,11 +23,9 @@ export default function HomePage() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
   const openModal = () => {
     setIsModalOpen(true);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -35,7 +33,7 @@ export default function HomePage() {
   return (
     <div style={{ width: "100vw", height: "100vh", margin: "0", padding: "0", display: "flex", position: "relative" }}>
       {
-        windowSize>500?<DesktopPage openModal={openModal}></DesktopPage>:<MobilePage></MobilePage>
+        windowSize>500?<DesktopPage openModal={openModal}></DesktopPage>:<MobilePage openModal={openModal}></MobilePage>
       }
       {isModalOpen && <CreateGroup closeModal={closeModal} />}
     </div>

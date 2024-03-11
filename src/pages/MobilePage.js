@@ -1,10 +1,14 @@
 import React from 'react'
 import Sidebar from '../components/siderbar/Sidebar'
-
+import { useSelector } from 'react-redux';
+import GroupNote from '../components/notes/GroupNote';
 export default function MobilePage({openModal}) {
-  return (
+    const { selectedGroup } = useSelector(state => state.group);
+    return (
     <>
-     <Sidebar openModal={openModal}></Sidebar>
+    {
+        selectedGroup==null?<Sidebar openModal={openModal}></Sidebar>:<GroupNote></GroupNote>
+    } 
     </>
   )
 }

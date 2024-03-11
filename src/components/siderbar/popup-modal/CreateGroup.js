@@ -33,6 +33,7 @@ export default function CreateGroup({closeModal}) {
     }
   }
   function createGroup(event){
+   
     event.preventDefault();
     if(groupData.groupName===""){
       toast.error("GroupName is required");

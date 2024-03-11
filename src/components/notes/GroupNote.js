@@ -4,9 +4,10 @@ import disabledSend from '../../assets/disabledSend.png';
 import enabledSend from '../../assets/enabledSend.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { setNotesData } from '../../slices/noteSlice';
+import {setSelectedGroup} from '../../slices/groupSlice'
 import GroupNoteCard from './NotesCard/GroupNoteCard';
 import { formattedDate } from '../../utility/dateFormatter';
-
+import arrow from '../../assets/arrow.png'
 export default function GroupNote() {
   const dispatch = useDispatch();
   const { selectedGroup } = useSelector((state) => state.group);
@@ -48,9 +49,13 @@ export default function GroupNote() {
   useEffect(()=>{
    setTextAreaData("");
   },[selectedGroup.groupName])
+  const handleBack=()=>{
+    dispatch(setSelectedGroup(null));
+  }
   return (
     <div className='groupName-container'>
       <header className='header'>
+        {selectedGroup&&<img src={arrow} className='arrow' onClick={handleBack}/>}
         <div className='groupLogo' style={{ background: selectedGroup.groupColor,cursor:"pointer" }}>{selectedGroup.groupLogo}</div>
         <p>{selectedGroup.groupName}</p>
       </header>

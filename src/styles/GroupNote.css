@@ -3,7 +3,6 @@
    flex-direction: column;
    width: 70vw;
    height: 100vh;
- 
    position: relative;
 }
 .header{
@@ -11,11 +10,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
-    padding: 8px 0;
-    width: 70vw;
-    height: 12vh;
-    /* position: fixed; */
+    gap: 12px;
+    width: inherit;
+    height: 70px;
+}
+.arrow{
+    margin-left: 20px;
+    color: #FFFFFF;
+    width:20px ;
+    cursor: pointer;
+    display: none;
 }
 .groupLogo{
     display: flex;
@@ -23,31 +27,33 @@
     justify-content: center;
     border:none;
     border-radius: 100%;
-    width: 3rem;
-    height: 3rem;
+    width: 50px;
+    height:50px;
     background:#0047FF;
     color:#FFFFFF ;
-    font-size: 1.2rem;
+    font-size: 22px;
     font-weight: 500;
     font-family: roboto;
     letter-spacing: 3%;
-    margin-left: 2vw;
+    margin-left: 20px;
 }
 .header>p{
     font-weight: 500;
     font-family: roboto;
     letter-spacing:3%;
-    font-size: 1.2rem;
+    font-size: 22px;
     color:#FFFFFF;
 }
 .groupNotes{
-  width: 70vw;
+  width: inherit;
   overflow-y: scroll;
-  height: 62vh;
+  height:calc(100vh-25px-26vh) ;
+  min-height: calc(100vh-25px-26vh);
+  max-height: calc(100vh-25px-26vh);
   background-color:#DAE5F5;
 }
 .inputNote-container{
-  width: 70vw;
+  width: inherit;
   height: 26vh;
   background-color:#001F8B ;
   display: flex;
@@ -89,19 +95,18 @@ textarea{
     .groupName-container{
         width:60vw
     }
-    /* .default-container{
-        width:60vw
-    }
-    .default-note>p{
-        font-size: 2vw;
-    }
-    .default-note>img{
-        width: 30vw;
-        height: 25vh;
-    } */
-  }
-/* @media (max-width:500px){
+}
+@media (max-width:500px){
     .groupName-container{
-        display: none;
+        width: 100vw;
     }
-} */
+    .header{
+        gap: 15px;
+    }
+    .groupLogo{
+        margin-left: 0px;
+    }
+    .arrow{
+        display: block;
+    }
+}
