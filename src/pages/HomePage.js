@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CreateGroup from '../components/siderbar/popup-modal/CreateGroup';
-
+import '../styles/HomPage.css'
 import DesktopPage from './DesktopPage';
 import MobilePage from './MobilePage';
 
@@ -31,11 +31,14 @@ export default function HomePage() {
   };
 
   return (
-    <div style={{ width: "100vw", height: "100vh", margin: "0", padding: "0", display: "flex", position: "relative" }}>
+    <div className="homepage-container" >
       {
         windowSize>500?<DesktopPage openModal={openModal}></DesktopPage>:<MobilePage openModal={openModal}></MobilePage>
       }
       {isModalOpen && <CreateGroup closeModal={closeModal} />}
+      {
+        isModalOpen&&<div className="overlay" ></div>
+      }  
     </div>
   );
 }

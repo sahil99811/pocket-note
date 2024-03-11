@@ -7,7 +7,7 @@ export default function Sidebar({ openModal }) {
   const { groups } = useSelector((state) => state.group);
  
   return (
-      <div className='sidebar-container'>
+      <div className='sidebar-container' >
        <h2>Pocket Notes</h2>
        <div className='group-container'>
         {groups.map((item, index) => (

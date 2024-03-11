@@ -87,7 +87,7 @@ export default function CreateGroup({closeModal}) {
               <div
                 key={index}
                 className='selectColor'
-                style={{ background: color, border: groupData.groupColor === color ? "2px solid black" : "none" }}
+                style={{ background: color, border: groupData.groupColor === color ? "3px solid black" : "none" }}
                 onClick={handleChange}
                 color={color}
                 name="groupColor"
